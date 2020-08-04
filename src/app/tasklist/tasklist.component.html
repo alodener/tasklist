@@ -1,0 +1,19 @@
+<div class="container">
+	<form (ngSubmit)="saveTask(f)" #f="ngForm" >
+		<div class="form-group">
+		<h1 class="text-center ">TaskList </h1>
+			<div class="input-group-prepend">
+                <input type="text" class="form-control" id="nome" placeholder="Tarefa" name="nome" ngModel  [(ngModel)]="task.nome">
+
+				<button type="submit" class="input-group-text"><i class="material-icons">add</i></button>
+			</div>
+		</div>
+		<div class="data">
+		<ul class="list-unstyled">
+			<li  *ngFor="let task of tasks"> <input type="checkbox" (click)="updateTask(task.codigo, task.nome, task.status)">  - {{task.nome}}<i (click)="deleteTask(f)" class="material-icons">delete</i></li>
+		</ul>
+	</div>
+</form>
+</div>
+
+<router-outlet></router-outlet>
